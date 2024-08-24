@@ -29,7 +29,9 @@ def process_category():
 
     if category:
         # 카테고리가 존재하면 해당 함수 호출
-        result = r123.process_category(category)
+        link = r123.process_category(category)
+        print("11231231232323123213213")
+        return jsonify({'link': link})
     else:
         result = "No category provided"
 
@@ -49,6 +51,16 @@ def process_search():
 
     # 결과를 클라이언트에 반환
     return jsonify({'message': result})
+
+@app.route('/process_category', methods=['POST'])
+def process_category_route():
+    data = request.json
+    category = data.get('category')
+    
+    # r123.py의 process_category 함수를 호출하여 링크를 가져옴
+    link = r123.process_category(category)
+    print("11231231232323123213213")
+    return jsonify({'link': link})
 
 if __name__ == '__main__':
     app.run(debug=True)

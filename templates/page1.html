@@ -52,7 +52,7 @@
 					<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item dropdown">
 						<a class="nav-link link text-black dropdown-toggle display-4" href="#" data-toggle="dropdown-submenu" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Clothing</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown-948" data-bs-popper="none">
-							<a class="text-black dropdown-item text-primary display-4" href="#" onclick="sendCategoryAndNavigate('Man', '{{ url_for('page1') }}'); return false;">Man</a>
+							<a class="text-black dropdown-item text-primary display-4" href="#" onclick="sendCategoryAndSearch('Man')">Man</a>
 							<a class="text-black dropdown-item display-4" href="#" onclick="sendCategoryAndSearch('Woman')">Woman</a>
 							<a class="text-black dropdown-item display-4" href="#" onclick="sendCategoryAndSearch('Unisex')">Unisex</a>
 						</div>
@@ -193,21 +193,30 @@
         }
 
         function sendCategoryAndSearch(category) {
-            currentCategory = category;
-        
-            // 검색어 입력 필드의 값을 가져옵니다.
-            const searchQuery = document.getElementById('searchInput').value;
-        
-            // 카테고리가 선택된 경우
-            if (currentCategory) {
-                sendCategoryData(currentCategory);
-            }
-            
-            // 검색어가 입력된 경우
-            if (searchQuery) {
-                sendSearchData(searchQuery);
-            }
-        }
+			fetch('/process_category', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ category: category })
+			})
+			.then(response => response.json())
+			.then(data => {
+				const link = data.link;
+				if (link) {
+					const itemDiv = document.querySelector('.item-img');
+					itemDiv.innerHTML = `<a href="${link}" target="_blank"><img src="assets/images/26dea93023e595ef5c709de542ec4a29824d4d66c1cbbce37ea8c40787b8.png" alt="Product Image"></a>`;
+					
+					// 링크가 삽입되었음을 콘솔에 출력
+					console.log("링크가 삽입되었습니다:", link);
+				} else {
+					console.log("No link available for this category.");
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+			});
+		}
         
         function sendCategoryData(category) {
             fetch('/process_category', {
