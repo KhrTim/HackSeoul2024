@@ -30,8 +30,8 @@ Streamlit
 <table>
   <tr>
     <td align="center"><a href="https://github.com/KhrTim"><img src="https://avatars.githubusercontent.com/u/42896525?v=4" width="100px;" alt=""/><br /><sub><b>Timur Khairulov</b></sub></a><br /><a href="https://github.com/KhrTim" title="Code">🏠</a></td>
+    <td align="center"><a href="https://github.com/Yeeachan"><img src="https://avatars.githubusercontent.com/u/138868233?v=4" width="100px;" alt=""/><br /><sub><b>Ye-Chan Park</b></sub></a><br /><a href="https://github.com/Yeeachan" title="Code">🏠</a></td>
     <td align="center"><a href="https://github.com/Woni0204"><img src="https://avatars.githubusercontent.com/u/162476686?v=4" width="100px;" alt=""/><br /><sub><b>Jeongwon Lee</b></sub></a><br /><a href="https://github.com/Woni0204" title="Code">🏠</a></td>
-   <td align="center"><a href="https://github.com/Yeeachan"><img src="https://avatars.githubusercontent.com/u/138868233?v=4" width="100px;" alt=""/><br /><sub><b>Ye-Chan Park</b></sub></a><br /><a href="https://github.com/Yeeachan" title="Code">🏠</a></td>
   </tr>
 </table>
 
