@@ -6,9 +6,9 @@
 
 
 ## Project Description
-Popular YouTube videos and influencers significantly affect consumer's behavior. Therefore, analyzing YouTube traffic is cruicial for maintainig high selling rates.
+YouTube influencers and trending videos have a substantial impact on consumer behavior. Understanding and analyzing YouTube traffic can provide valuable insights for boosting sales.
 
-This project aims to analyze the recent trending videos and extract product recommendations from them to further recommend them in Coupang application.
+This project aims to analyze trending YouTube videos to extract product recommendations. These recommendations will be integrated into the Coupang application to enhance user engagement and drive sales.
 ## Hackathon Track
 :star2: Coupang’s Challenge Statement :star2:
 ## Tech Stack
