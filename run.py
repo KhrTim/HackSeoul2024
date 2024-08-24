@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify, render_template
-
+import r123  # r123.py 파일을 임포트합니다.
 app = Flask(__name__, static_folder='templates/assets')
 
 @app.route('/')
@@ -22,20 +22,33 @@ def page3():
 def page4():
     return render_template('page4.html')
 
-@app.route('/search', methods=['POST'])
-def search():
+@app.route('/process_category', methods=['POST'])
+def process_category():
     data = request.json
-    query = data.get('query')
-    
-    # 여기서 검색 결과를 처리할 수 있습니다.
-    results = [
-        f'Result 1 for "{query}"',
-        f'Result 2 for "{query}"',
-        f'Result 3 for "{query}"'
-    ]
-    
-    # 결과를 JSON 형식으로 반환
-    return jsonify(results)
+    category = data.get('category')
+
+    if category:
+        # 카테고리가 존재하면 해당 함수 호출
+        result = r123.process_category(category)
+    else:
+        result = "No category provided"
+
+    # 결과를 클라이언트에 반환
+    return jsonify({'message': result})
+
+@app.route('/process_search', methods=['POST'])
+def process_search():
+    data = request.json
+    search_query = data.get('search')
+
+    if search_query:
+        # 검색어가 존재하면 해당 함수 호출
+        result = r123.search_query(search_query)
+    else:
+        result = "No search query provided"
+
+    # 결과를 클라이언트에 반환
+    return jsonify({'message': result})
 
 if __name__ == '__main__':
     app.run(debug=True)
